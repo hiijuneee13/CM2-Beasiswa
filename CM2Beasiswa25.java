@@ -131,11 +131,9 @@ public class CM2Beasiswa25 {
         }
     }
 
-    // -----------------------------
     // Fungsi: tampil semua pendaftar
     // Tugas: menampilkan semua data yang tersimpan
     // Jenis kode: perulangan, array
-    // -----------------------------
     static void tampilSemua() {
         if (jumlahData == 0) {
             System.out.println("Belum ada data.");
@@ -153,11 +151,9 @@ public class CM2Beasiswa25 {
         }
     }
 
-    // -----------------------------
     // Fungsi: cari berdasar jenis beasiswa
     // Tugas: cari dan tampil pendaftar sesuai jenis yang dipilih
     // Jenis kode: kondisi, perulangan
-    // -----------------------------
     static void cariJenis() {
         if (jumlahData == 0) {
             System.out.println("Belum ada data.");
@@ -169,12 +165,12 @@ public class CM2Beasiswa25 {
         System.out.println("2. Unggulan");
         System.out.println("3. Riset");
         System.out.print("Masukkan Jenis Beasiswa: ");
-        String cariAngka = sc.nextLine();
+        String jenisBeasiswa = sc.nextLine();
 
         String jenisDicari = "";
-        if (cariAngka.equals("Reguler")) jenisDicari = "Reguler";
-        else if (cariAngka.equals("Unggulan")) jenisDicari = "Unggulan";
-        else if (cariAngka.equals("Riset")) jenisDicari = "Riset";
+        if (jenisBeasiswa.equals("Reguler")) jenisDicari = "Reguler";
+        else if (jenisBeasiswa.equals("Unggulan")) jenisDicari = "Unggulan";
+        else if (jenisBeasiswa.equals("Riset")) jenisDicari = "Riset";
         else {
             System.out.println("Pilihan jenis tidak ada.");
             return;
@@ -193,11 +189,9 @@ public class CM2Beasiswa25 {
         }
     }
 
-    // -----------------------------
     // Fungsi:  hitung rata-rata IPK per jenis beasiswa
     // Tugas: hitung rata-rata IPK per jenis dan tampil
     // Jenis kode: perhitungan, kondisi
-    // -----------------------------
     static void hitungRataRata() {
         if (jumlahData == 0) {
             System.out.println("Belum ada data.");
