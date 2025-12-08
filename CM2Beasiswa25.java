@@ -1,0 +1,257 @@
+import java.util.Scanner;
+
+public class CM2Beasiswa25 {
+    static Scanner sc = new Scanner(System.in);
+
+    // array 2 dimensi
+    // kolom: 0=nama, 1=nim, 2=ipk, 3=jenis, 4=penghasilan
+    static String[][] data = new String[5][5];
+    static int jumlahData = 0; // berapa banyak data yang sudah disimpan
+
+    public static void main(String[] args) {
+        // main: menu utama -> panggil fungsi sesuai pilihan
+        while (true) {
+            System.out.println();
+            System.out.println("=== Sistem Pendaftaran Mahasiswa ===");
+            System.out.println("1. Tmabah Data Pendaftar Beasiswa");
+            System.out.println("2. Tampilkan Semua Pendaftar");
+            System.out.println("3. Cari Pendaftar berdasarkan Jenis beasiswa");
+            System.out.println("4. Hitung Rata-rata IPK per Jenis beasiswa");
+            System.out.println("5. Keluar");
+            System.out.print("Pilih menu (1 - 5): ");
+            String menu = sc.nextLine();
+
+            if (menu.equals("1")) {
+                inputData();       // fungsi tambah data pendaftar beasiswa
+            } else if (menu.equals("2")) {
+                tampilSemua();     // fungsi tampil semua pendaftar
+            } else if (menu.equals("3")) {
+                cariJenis();       // fungsi cari berdasar jenis beasiswa
+            } else if (menu.equals("4")) {
+                hitungRataRata();  // fungsi hitung rata-rata IPK per jenis beasiswa
+            } else if (menu.equals("5")) {
+                System.out.println("Program selesai. Semangat ya!");
+                break;
+            } else {
+                System.out.println("Pilihan tidak ada, coba lagi.");
+            }
+        }
+
+        sc.close();
+    }
+
+
+    // Fungsi: inputData
+    // Tugas: minta input user, validasi, lalu simpan ke array 2D
+    // Jenis kode: input, validasi, array
+    static void inputData() {
+        // cek kapasitas array
+        if (jumlahData == data.length) {
+            System.out.println("Kapasitas penuh, tidak bisa tambah.");
+            return;
+        }
+
+        System.out.print("Nama Mahasiswa: ");
+        String nama = sc.nextLine();
+
+        System.out.print("NIM: ");
+        String nim = sc.nextLine();
+
+        // input IPK dengan validasi
+        String ipk = "";
+        while (true) {
+            System.out.print("IPK (0.0 - 4.0): ");
+            ipk = sc.nextLine();
+            try {
+                double angkaIpk = Double.parseDouble(ipk);
+                if (angkaIpk < 0 || angkaIpk > 4) {
+                    System.out.println("IPK harus antara 0 - 4");
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Masukkan IPK yang benar, misal 3.4");
+            }
+        }
+
+        // pilih jenis beasiswa
+        String jenis = "";
+        while (true) {
+            System.out.println("Pilih jenis beasiswa:");
+            System.out.println("1. Reguler");
+            System.out.println("2. Unggulan");
+            System.out.println("3. Riset");
+            System.out.print("Masukkan Jenis Beasiswa: ");
+            String pilihanJenis = sc.nextLine();
+
+            if (pilihanJenis.equals("Reguler")) {
+                jenis = "Reguler";
+                break;
+            } else if (pilihanJenis.equals("unggulan")) {
+                jenis = "Unggulan";
+                break;
+            } else if (pilihanJenis.equals("Riset")) {
+                jenis = "Riset";
+                break;
+            } else {
+                System.out.println("Pilihan tidak ada, ulangi.");
+            }
+        }
+
+        // input penghasilan dengan validasi
+        String penghasilan = "";
+        while (true) {
+            System.out.print("Penghasilan orang tua (maks 2000000): ");
+            penghasilan = sc.nextLine();
+            try {
+                int angka = Integer.parseInt(penghasilan);
+                if (angka < 0) {
+                    System.out.println("Tidak boleh negatif.");
+                } else if (angka > 2000000) {
+                    System.out.println("Pendaftaran dibatalkan karena penghasilan melebihi batas maksimal.");
+                    penghasilan = ""; // tanda batal
+                    break;
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Masukkan angka yang benar, contoh: 1500000");
+            }
+        }
+
+        // simpan data kalau valid
+        if (!penghasilan.equals("")) {
+            data[jumlahData][0] = nama;
+            data[jumlahData][1] = nim;
+            data[jumlahData][2] = ipk;
+            data[jumlahData][3] = jenis;
+            data[jumlahData][4] = penghasilan;
+            jumlahData++;
+            System.out.println("Data berhasil disimpan. Total: " + jumlahData);
+        }
+    }
+
+    // -----------------------------
+    // Fungsi: tampil semua pendaftar
+    // Tugas: menampilkan semua data yang tersimpan
+    // Jenis kode: perulangan, array
+    // -----------------------------
+    static void tampilSemua() {
+        if (jumlahData == 0) {
+            System.out.println("Belum ada data.");
+            return;
+        }
+
+        System.out.println("=== DAFTAR PENDAFTAR ===");
+        for (int i = 0; i < jumlahData; i++) {
+            System.out.println("Nama Mahasiswa: " + data[i][0]);
+            System.out.println("NIM: " + data[i][1]);
+            System.out.println("IPK: " + data[i][2]);
+            System.out.println("Jenis Beasiswa: " + data[i][3]);
+            System.out.println("Penghasilan: " + data[i][4]);
+            System.out.println();
+        }
+    }
+
+    // -----------------------------
+    // Fungsi: cari berdasar jenis beasiswa
+    // Tugas: cari dan tampil pendaftar sesuai jenis yang dipilih
+    // Jenis kode: kondisi, perulangan
+    // -----------------------------
+    static void cariJenis() {
+        if (jumlahData == 0) {
+            System.out.println("Belum ada data.");
+            return;
+        }
+
+        System.out.println("Cari jenis:");
+        System.out.println("1. Reguler");
+        System.out.println("2. Unggulan");
+        System.out.println("3. Riset");
+        System.out.print("Masukkan Jenis Beasiswa: ");
+        String cariAngka = sc.nextLine();
+
+        String jenisDicari = "";
+        if (cariAngka.equals("Reguler")) jenisDicari = "Reguler";
+        else if (cariAngka.equals("Unggulan")) jenisDicari = "Unggulan";
+        else if (cariAngka.equals("Riset")) jenisDicari = "Riset";
+        else {
+            System.out.println("Pilihan jenis tidak ada.");
+            return;
+        }
+
+        int ketemu = 0;
+        for (int i = 0; i < jumlahData; i++) {
+            if (data[i][3].equals(jenisDicari)) {
+                ketemu++;
+                System.out.println("Nama: " + data[i][0] + ", NIM: " + data[i][1] + ", IPK: " + data[i][2]);
+            }
+        }
+
+        if (ketemu == 0) {
+            System.out.println("Tidak ada pendaftar jenis " + jenisDicari);
+        }
+    }
+
+    // -----------------------------
+    // Fungsi:  hitung rata-rata IPK per jenis beasiswa
+    // Tugas: hitung rata-rata IPK per jenis dan tampil
+    // Jenis kode: perhitungan, kondisi
+    // -----------------------------
+    static void hitungRataRata() {
+        if (jumlahData == 0) {
+            System.out.println("Belum ada data.");
+            return;
+        }
+
+        // total dan hitung masing-masing jenis beasiswa
+        double totalReguler = 0;
+        double totalUnggulan = 0;
+        double totalRiset = 0;
+        int hitungReguler = 0;
+        int hitungUnggulan = 0;
+        int hitungRiset = 0;
+
+        for (int i = 0; i < jumlahData; i++) {
+            double nilaiIpk = Double.parseDouble(data[i][2]);
+            String jenisBeasiswa = data[i][3];
+
+            if (jenisBeasiswa.equals("Reguler")) {
+                totalReguler = totalReguler + nilaiIpk;   // akumulasi
+                hitungReguler = hitungReguler + 1;        // jumlah pendaftar Reguler
+            } else if (jenisBeasiswa.equals("Unggulan")) {
+                totalUnggulan = totalUnggulan + nilaiIpk;
+                hitungUnggulan = hitungUnggulan + 1;      // jumlah pendaftar Unggulan
+            } else if (jenisBeasiswa.equals("Riset")) {
+                totalRiset = totalRiset + nilaiIpk;
+                hitungRiset = hitungRiset + 1;          // jumlah pendaftar Riset
+            }
+        }
+
+        System.out.println("=== RATA-RATA IPK ===");
+
+        // Beasiswa Reguler
+        if (hitungReguler > 0) {
+            double rataReg = totalReguler / hitungReguler; // rata = total / jumlah
+            System.out.println("Reguler  : " + rataReg);
+        } else {
+            System.out.println("Reguler  : -");
+        }
+
+        // Beasiswa Unggulan
+        if (hitungUnggulan > 0) {
+            double rataUng = totalUnggulan / hitungUnggulan;
+            System.out.println("Unggulan : " + rataUng);
+        } else {
+            System.out.println("Unggulan : -");
+        }
+
+        // Beasiswa Riset
+        if (hitungRiset > 0) {
+            double rataRis = totalRiset / hitungRiset;
+            System.out.println("Riset    : " + rataRis);
+        } else {
+            System.out.println("Riset    : -");
+        }
+    }
+}
