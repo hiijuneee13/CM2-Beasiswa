@@ -41,7 +41,7 @@ public class CM2Beasiswa25 {
     }
 
 
-    // Fungsi: inputData
+    // Fungsi: inputData Pendaftar Beasiswa
     // Tugas: minta input user, validasi, lalu simpan ke array 2D
     // Jenis kode: input, validasi, array
     static void inputData() {
@@ -109,7 +109,7 @@ public class CM2Beasiswa25 {
                     System.out.println("Tidak boleh negatif.");
                 } else if (angka > 2000000) {
                     System.out.println("Pendaftaran dibatalkan karena penghasilan melebihi batas maksimal.");
-                    penghasilan = ""; // tanda batal
+                    penghasilan = ""; 
                     break;
                 } else {
                     break;
@@ -128,6 +128,15 @@ public class CM2Beasiswa25 {
             data[jumlahData][4] = penghasilan;
             jumlahData++;
             System.out.println("Data berhasil disimpan. Total: " + jumlahData);
+        
+        // Tampilkan data dalam bentuk tabel
+            System.out.println("==============================================================");
+            System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
+                            "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
+            System.out.println("==============================================================");
+            System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
+                                      nama, nim, ipk, jenis, penghasilan);
+            System.out.println("==============================================================");
         }
     }
 
