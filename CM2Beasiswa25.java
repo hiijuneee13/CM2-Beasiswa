@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class CM2Beasiswa25 {
     static Scanner sc = new Scanner(System.in);
-
+    
     // array 2 dimensi
     // kolom: 0=nama, 1=nim, 2=ipk, 3=jenis, 4=penghasilan
     static String[][] data = new String[5][5];
