@@ -141,14 +141,21 @@ public class CM2Beasiswa25 {
         }
 
         // Data dalam bentuk tabel
-            System.out.println("                     Daftar Pendaftar Beasiswa");
-            System.out.println("==============================================================");
+        System.out.println("                     Daftar Pendaftar Beasiswa");
+        System.out.println("=====================================================================");
+        System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
+                        "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
+        System.out.println("=====================================================================");
+
+        for (int i = 0; i < jumlahData; i++) {
             System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
-                            "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
-            System.out.println("==============================================================");
-            System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
-                                      data[0], data[1], data[2], data[3], data[4]);
-            System.out.println("==============================================================");
+                            data[i][0],  // Nama
+                            data[i][1],  // NIM
+                            data[i][2],  // IPK
+                            data[i][3],  // Jenis
+                            data[i][4]); // Penghasilan
+        }
+        System.out.println("=====================================================================");
     }
 
 
