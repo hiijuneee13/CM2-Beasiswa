@@ -30,7 +30,7 @@ public class CM2Beasiswa25 {
             } else if (menu.equals("4")) {
                 hitungRataRata();  // fungsi hitung rata-rata IPK per jenis beasiswa
             } else if (menu.equals("5")) {
-                System.out.println("Program selesai. Semangat ya!");
+                System.out.println("Keluar dari program.");
                 break;
             } else {
                 System.out.println("Pilihan tidak ada, coba lagi.");
