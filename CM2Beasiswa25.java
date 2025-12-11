@@ -13,7 +13,7 @@ public class CM2Beasiswa25 {
         while (true) {
             System.out.println();
             System.out.println("=== Sistem Pendaftaran Mahasiswa ===");
-            System.out.println("1. Tmabah Data Pendaftar Beasiswa");
+            System.out.println("1. Tambah Data Pendaftar Beasiswa");
             System.out.println("2. Tampilkan Semua Pendaftar");
             System.out.println("3. Cari Pendaftar berdasarkan Jenis beasiswa");
             System.out.println("4. Hitung Rata-rata IPK per Jenis beasiswa");
@@ -141,7 +141,7 @@ public class CM2Beasiswa25 {
         }
 
         // Data dalam bentuk tabel
-        System.out.println("                     DataPendaftar Beasiswa");
+        System.out.println("                   Data Semua Pendaftar Beasiswa");
         System.out.println("=====================================================================");
         System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
                         "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
