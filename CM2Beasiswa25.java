@@ -87,7 +87,7 @@ public class CM2Beasiswa25 {
             if (pilihanJenis.equals("Reguler")) {
                 jenis = "Reguler";
                 break;
-            } else if (pilihanJenis.equals("unggulan")) {
+            } else if (pilihanJenis.equals("Unggulan")) {
                 jenis = "Unggulan";
                 break;
             } else if (pilihanJenis.equals("Riset")) {
@@ -128,15 +128,6 @@ public class CM2Beasiswa25 {
             data[jumlahData][4] = penghasilan;
             jumlahData++;
             System.out.println("Data berhasil disimpan. Total: " + jumlahData);
-        
-        // Tampilkan data dalam bentuk tabel
-            System.out.println("==============================================================");
-            System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
-                            "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
-            System.out.println("==============================================================");
-            System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
-                                      nama, nim, ipk, jenis, penghasilan);
-            System.out.println("==============================================================");
         }
     }
 
@@ -149,16 +140,17 @@ public class CM2Beasiswa25 {
             return;
         }
 
-        System.out.println("=== DAFTAR PENDAFTAR ===");
-        for (int i = 0; i < jumlahData; i++) {
-            System.out.println("Nama Mahasiswa: " + data[i][0]);
-            System.out.println("NIM: " + data[i][1]);
-            System.out.println("IPK: " + data[i][2]);
-            System.out.println("Jenis Beasiswa: " + data[i][3]);
-            System.out.println("Penghasilan: " + data[i][4]);
-            System.out.println();
-        }
+        // Data dalam bentuk tabel
+            System.out.println("                     Daftar Pendaftar Beasiswa");
+            System.out.println("==============================================================");
+            System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
+                            "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
+            System.out.println("==============================================================");
+            System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
+                                      data[0], data[1], data[2], data[3], data[4]);
+            System.out.println("==============================================================");
     }
+
 
     // Fungsi: cari berdasar jenis beasiswa
     // Tugas: cari dan tampil pendaftar sesuai jenis yang dipilih
