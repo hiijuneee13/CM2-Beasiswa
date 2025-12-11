@@ -5,7 +5,7 @@ public class CM2Beasiswa25 {
     
     // array 2 dimensi
     // kolom: 0=nama, 1=nim, 2=ipk, 3=jenis, 4=penghasilan
-    static String[][] data = new String[5][5];
+    static String[][] data = new String[20][5];
     static int jumlahData = 0; // berapa banyak data yang sudah disimpan
 
     public static void main(String[] args) {
