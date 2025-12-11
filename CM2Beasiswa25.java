@@ -115,7 +115,7 @@ public class CM2Beasiswa25 {
                     break;
                 }
             } catch (Exception e) {
-                System.out.println("Masukkan angka yang benar, contoh: 1500000");
+                System.out.println("Masukkan angka yang benar, contoh: 1500");
             }
         }
 
@@ -141,7 +141,7 @@ public class CM2Beasiswa25 {
         }
 
         // Data dalam bentuk tabel
-        System.out.println("                     Daftar Pendaftar Beasiswa");
+        System.out.println("                     Data Pendaftar Beasiswa");
         System.out.println("=====================================================================");
         System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
                         "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
