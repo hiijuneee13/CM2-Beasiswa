@@ -106,7 +106,7 @@ public class CM2Beasiswa25 {
             try {
                 int angka = Integer.parseInt(penghasilan);
                 if (angka < 0) {
-                    System.out.println("Tidak boleh negatif.");
+                    System.out.println("Angka tidak boleh negatif.");
                 } else if (angka > 2000000) {
                     System.out.println("Pendaftaran dibatalkan karena penghasilan melebihi batas maksimal.");
                     penghasilan = ""; 
