@@ -141,7 +141,7 @@ public class CM2Beasiswa25 {
         }
 
         // Data dalam bentuk tabel
-        System.out.println("                     Data Pendaftar Beasiswa");
+        System.out.println("                     DataPendaftar Beasiswa");
         System.out.println("=====================================================================");
         System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
                         "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
