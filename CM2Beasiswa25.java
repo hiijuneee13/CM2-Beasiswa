@@ -11,7 +11,6 @@ public class CM2Beasiswa25 {
     public static void main(String[] args) {
         // main: menu utama -> panggil fungsi sesuai pilihan
         while (true) {
-            System.out.println();
             System.out.println("=== Sistem Pendaftaran Mahasiswa ===");
             System.out.println("1. Tambah Data Pendaftar Beasiswa");
             System.out.println("2. Tampilkan Semua Pendaftar");
@@ -65,7 +64,7 @@ public class CM2Beasiswa25 {
             try {
                 double angkaIpk = Double.parseDouble(ipk);
                 if (angkaIpk < 0 || angkaIpk > 4) {
-                    System.out.println("IPK harus antara 0 - 4");
+                    System.out.println("IPK harus antara 0.0 - 4.0");
                 } else {
                     break;
                 }
@@ -115,7 +114,7 @@ public class CM2Beasiswa25 {
                     break;
                 }
             } catch (Exception e) {
-                System.out.println("Masukkan angka yang benar, contoh: 1500");
+                System.out.println("Masukkan angka yang benar, contoh: 1500000");
             }
         }
 
