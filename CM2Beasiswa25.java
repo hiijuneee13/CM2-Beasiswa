@@ -274,7 +274,11 @@ public class CM2Beasiswa25 {
 
         for (int i = 0; i < jumlahData; i++) {
             System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
-                    data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]);
+                            data[i][0],  // Nama
+                            data[i][1],  // NIM
+                            data[i][2],  // IPK
+                            data[i][3],  // Jenis
+                            data[i][4]); // Penghasilan
         }
 
         System.out.println("=====================================================================");
