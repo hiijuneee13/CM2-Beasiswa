@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class CM2Beasiswa25 {
+public class CM2Beasiswa {
     static Scanner sc = new Scanner(System.in);
     
     // array 2 dimensi
     // kolom: 0=nama, 1=nim, 2=ipk, 3=jenis, 4=penghasilan
-    static String[][] data = new String[20][5];
+    static String[][] data = new String[1][5];
     static int jumlahData = 0; // berapa banyak data yang sudah disimpan
 
     public static void main(String[] args) {
@@ -17,9 +17,8 @@ public class CM2Beasiswa25 {
             System.out.println("2. Tampilkan Semua Pendaftar");
             System.out.println("3. Cari Pendaftar berdasarkan Jenis beasiswa");
             System.out.println("4. Hitung Rata-rata IPK per Jenis beasiswa");
-            System.out.println("5. Tampilkan Semua Pendaftar Beasiswa");
-            System.out.println("6. Keluar");
-            System.out.print("Pilih menu (1 - 6): ");
+            System.out.println("5. Keluar");
+            System.out.print("Pilih menu (1 - 5): ");
             String menu = sc.nextLine();
 
             if (menu.equals("1")) {
@@ -31,14 +30,14 @@ public class CM2Beasiswa25 {
             } else if (menu.equals("4")) {
                 hitungRataRata();  // fungsi hitung rata-rata IPK per jenis beasiswa
             } else if (menu.equals("5")) {
-                tampilkanSemuaPendaftar();   // fungsi cari pendaftar beasiswa
-            } else if (menu.equals("6")) {
-                konfirmasiKeluar();
+                System.out.println("Keluar dari program.");
                 break;
             } else {
                 System.out.println("Pilihan tidak ada, coba lagi.");
             }
         }
+
+        sc.close();
     }
 
 
@@ -57,6 +56,8 @@ public class CM2Beasiswa25 {
 
         System.out.print("NIM: ");
         String nim = sc.nextLine();
+
+        
 
         // input IPK dengan validasi
         String ipk = "";
@@ -197,7 +198,7 @@ public class CM2Beasiswa25 {
             System.out.println("Tidak ada pendaftar jenis " + jenisDicari);
         }
     }
-    
+
     // Fungsi:  hitung rata-rata IPK per jenis beasiswa
     // Tugas: hitung rata-rata IPK per jenis dan tampil
     // Jenis kode: perhitungan, kondisi
@@ -255,48 +256,6 @@ public class CM2Beasiswa25 {
             System.out.println("Riset    : " + rataRis);
         } else {
             System.out.println("Riset    : -");
-        }
-    }
-
-    // Fungsi: tampilkan semua pendaftar beasiswa
-    // tugas: menampilkan semua data pendaftar dalam format tabel
-    static void tampilkanSemuaPendaftar() {
-        if (jumlahData == 0) {
-            System.out.println("Belum ada data pendaftar.");
-            return;
-        }
-
-        System.out.println("Daftar Semua Pendaftar Beasiswa");
-        System.out.println("=====================================================================");
-        System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
-                "Nama", "NIM", "IPK", "Jenis", "Penghasilan");
-        System.out.println("=====================================================================");
-
-        for (int i = 0; i < jumlahData; i++) {
-            System.out.printf("| %-15s | %-10s | %-4s | %-10s | %-12s |\n",
-                    data[i][0], data[i][1], data[i][2], data[i][3], data[i][4]);
-        }
-
-        System.out.println("=====================================================================");
-    }
-
-
-        // Fungsi: konfirmasi keluar
-        // Tugas: minta konfirmasi user sebelum keluar
-        static boolean konfirmasiKeluar() {
-        while (true) {
-            System.out.print("Apakah Anda yakin ingin keluar? (y/t): ");
-            String jawab = sc.nextLine();
-
-            if (jawab.equalsIgnoreCase("y")) {
-                System.out.println("Keluar dari program."); 
-                return true;
-            } else if (jawab.equalsIgnoreCase("t")) {
-                System.out.println("Keluar dibatalkan.");
-                return false;
-            } else {
-                System.out.println("Jawaban tidak valid. Masukkan y atau t.");
-            }
         }
     }
 }
